@@ -17,5 +17,8 @@ c. Optionally validate using the NHS Digital Ontology Service (configured via en
 The configuration is aimed at supporting different use cases. For example the lambda version with no ontology support is aimed at performing basic FHIR validation checks. This may just be FHIR core and schema validation but can also test against UKCore profiles.
 
 
+## Variables
 
+FHIR packages: [manifest.json](https://github.com/NHSDigital/IOPS-FHIR-Validation-Service/blob/main/src/main/resources/manifest.json)
+HAPI Update: [pom.xml](https://github.com/NHSDigital/IOPS-FHIR-Validation-Service/blob/main/pom.xml)
 
