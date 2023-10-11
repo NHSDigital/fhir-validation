@@ -22,6 +22,8 @@ The configuration is aimed at supporting different use cases. For example the la
 FHIR packages: [manifest.json](https://github.com/NHSDigital/IOPS-FHIR-Validation-Service/blob/main/src/main/resources/manifest.json)
 HAPI Update: [pom.xml](https://github.com/NHSDigital/IOPS-FHIR-Validation-Service/blob/main/pom.xml)
 
+# Custom Checks
+Cusom error messages can be found within  [/src/main/kotlin/uk/nhs/england/fhirvalidator/provider/ValidateR4Provider.kt](https://github.com/NHSDigital/IOPS-FHIR-Validation-Service/blob/update/6.8.3/src/main/kotlin/uk/nhs/england/fhirvalidator/provider/ValidateR4Provider.kt)
 # Validator Update Guide
 
 ## Prerequisites
