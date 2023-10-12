@@ -30,20 +30,20 @@ Cusom error messages can be found within  [/src/main/kotlin/uk/nhs/england/fhirv
 
 Installation of the following on a local machine
 
-- Maven https://maven.apache.org/ 
-  - Installation (Debian): How to Install Apache Maven on Debian 11 | ITzGeek 
+- [Maven](https://maven.apache.org/) 
+  - Installation (Debian): [How to Install Apache Maven on Debian 11](https://www.itzgeek.com/how-tos/linux/debian/how-to-install-apache-maven-on-debian-11.html)
 
-- Docker https://www.docker.com/ 
-  - Installation (Debian): Install Docker Engine on Debian | Docker Docs
+- [Docker](https://www.docker.com/) 
+  - Installation (Debian): [Install Docker Engine](https://docs.docker.com/engine/install/)  
 *Note:*If the os is a fork from Debian, e.g. LMDE, replace $(. /etc/os-release && echo “$VERSION_CODENAME”) with $(echo <Debian- version-codename>)
 Where <Debian-version-codename> e.g. bookworm (lowercase) for Debian.
 
-- AWS CLI https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html 
-- AWS Toolkit (optional) https://aws.amazon.com/search/?searchQuery=toolkit 
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [AWS Toolkit (optional)](https://aws.amazon.com/search/?searchQuery=toolkit)
 
 - HAPI-FHIR
-  - The latest release of hapi-fhir can be found at https://github.com/hapifhir/hapi-fhir 
-  - The changelog can be found at https://hapifhir.io/hapi-fhir/docs/introduction/changelog.html 
+  - The latest release of hapi-fhir can be found at [github.com/hapifhir/hapi-fhir](https://github.com/hapifhir/hapi-fhir) 
+  - The changelog can be found at [hapifhir.io/hapi-fhir/docs/introduction/changelog](https://hapifhir.io/hapi-fhir/docs/introduction/changelog.html) 
 
 ## Update AWS Server
 
