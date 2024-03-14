@@ -14,7 +14,7 @@
 	<name>IOPS-FHIR-Validation-Service</name>
 	<description>HAPI FHIR Validator using Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<kotlin.version>1.6.21</kotlin.version>
 		<fhir.version>6.8.0</fhir.version>
 		<swagger_version>2.1.12</swagger_version>
@@ -200,8 +200,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>11</source>
-					<target>11</target>
+					<source>17</source>
+					<target>17</target>
 				</configuration>
 			</plugin>
 		</plugins>
