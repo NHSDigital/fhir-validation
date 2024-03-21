@@ -203,13 +203,13 @@ class ValidateR4Provider (
             result = validator.validateWithResult(resource, ValidationOptions().addProfile(profile))
                 .toOperationOutcome() as? OperationOutcome
         } else {
-            capabilityStatementApplier.applyCapabilityStatementProfiles(resource, importProfile)
             val messageDefinitionErrors = fhirMessage.applyMessageDefinition(resource)
             if (messageDefinitionErrors != null) {
                 messageDefinitionErrors.issue.forEach{
                     additionalIssues.add(it)
                 }
             }
+            capabilityStatementApplier.applyCapabilityStatementProfiles(resource, importProfile)
             if (importProfile !== null && importProfile && resource is Bundle) fhirDocumentApplier.applyDocumentDefinition(resource)
             result = validator.validateWithResult(fhirContext.newJsonParser().setPrettyPrint(true).encodeResourceToString(resource)).toOperationOutcome() as? OperationOutcome
         }
