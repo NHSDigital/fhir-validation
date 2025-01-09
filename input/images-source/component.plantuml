@@ -3,7 +3,7 @@
 
 interface "FHIR RESTful API" as api
 
-component "FHIR Validation" as validator
+component "FHIR Validation Service" as validator
 note right
 HAPI FHIR Plain Server
 end note
