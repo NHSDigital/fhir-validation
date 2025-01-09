@@ -15,18 +15,24 @@ end note
 
 component "Inbuilt Terminology Server" as internal
 note right
+**CommonCodeSystemsTerminologyService**
+
 Pre loaded with FHIR Profiles, ValueSets
 and CodeSystems from supplied FHIR Packages
 end note
 
 interface "FHIR RESTful API" as Facade
 note right
+**TerminologyServiceValidationSupport**
+
 Facade which handles Onto Server
 authentication
 end note
 
 interface "FHIR RESTful API" as AWSFacade
 note right
+**AWSValidationSupport**
+
 Facade which handles Cognito
 authentication
 end note
