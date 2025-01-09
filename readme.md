@@ -40,7 +40,7 @@ This API is documented via [OpenAPI Specification (swagger)](https://swagger.io/
 
 ![validator component diagram](./input/images/component-diagram.png)
 
-Internally validation configuration is composed of: 
+The validation configuration is composed of: 
 
 - `DefaultProfileValidationSupport` - which includes base FHIR CodeSystems and ValueSets
 - `CommonCodeSystemsTerminologyService` - which includes UK Core and NHS England FHIR NPM packages
