@@ -13,6 +13,12 @@ src/uk.nhs.digital.fhir.fwoa.main/resources/*.tgz
 src/main/resources/*.tgz
 **/src/main/resources/*.tgz
 
+/input-cache/
+/output/
+/temp/
+/template/
+/fsh-generated/
+
 ### STS ###
 .apt_generated
 .classpath
