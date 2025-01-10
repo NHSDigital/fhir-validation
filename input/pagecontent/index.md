@@ -1,5 +1,5 @@
 
-### Validation Application
+### FHIR Tools Application
 
 - [FHIR Tools Skunkworks](https://nhsdigital.github.io/interoperability-standards-tools-skunkworks/)
 - [Github Repository](https://github.com/NHSDigital/interoperability-standards-tools-skunkworks)
