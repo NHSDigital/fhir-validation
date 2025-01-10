@@ -6,7 +6,7 @@ id: nhs.england.validation
 canonical: https://fhir.nhs.uk/England/validation
 version: 0.0.1-current
 name: NHS_England_Validation
-title: "FHIR Validation (internal)"
+title: "FHIR Validation (internal/skunkworks)"
 description: Internal FHIR Validator used in conjunction with IG publication processes
 releaseLabel: ci-build
 
