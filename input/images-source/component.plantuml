@@ -6,49 +6,54 @@ interface "FHIR RESTful API" as api
 
 component "FHIR Validation Service" as validator
 note right
-HAPI FHIR Plain Server
+[[https://hapifhir.io/hapi-fhir/docs/server_plain/server_types.html HAPI FHIR Plain Server]]
 end note
 
-component "NHS England Terminology Server" as onto
-note right
-Used for validating SNOMED Terminology
-end note
+package "[[https://hapifhir.io/hapi-fhir/docs/validation/validation_support_modules.html ValidationSupportChain]]" as ValidationSupportChain {
 
-component "Inbuilt Terminology Server" as internal
+component "CommonCodeSystemsTerminologyService" as internal
 note right
-**CommonCodeSystemsTerminologyService**
-
 Pre loaded with FHIR Profiles, ValueSets
 and CodeSystems from supplied FHIR Packages
 end note
 
-interface "FHIR RESTful API" as Facade
+component "TerminologyServiceValidationSupport" as Facade
 note right
-**TerminologyServiceValidationSupport**
-
-Facade which handles Onto Server
+Handles NHSE Terminology Server
 authentication
 end note
 
-interface "FHIR RESTful API" as AWSFacade
+component "AWSValidationSupport" as AWSFacade
 note right
-**AWSValidationSupport**
-
-Facade which handles Cognito
+Handles AWS Cognito
 authentication
 end note
 
-component AWSFHIRWorks
+internal -d[hidden]- Facade
+Facade -d[hidden]- AWSFacade
+
+}
+
+component "[[https://digital.nhs.uk/services/terminology-server NHS England Terminology Server]]" as onto
+note right
+Used for validating SNOMED Terminology
+end note
+
+component "[[https://github.com/aws-solutions/fhir-works-on-aws AWS FHIRWorks]]" as AWSFHIRWorks
 note right
 Repository of FHIR Questionnsaire's
 end note
 
 
-api -- validator
-validator -- Facade
-validator -- internal
-validator -- AWSFacade
-Facade -- onto
-AWSFacade -- AWSFHIRWorks
+api --> validator : FHIR RESTful API \n [[https://hl7.org/fhir/R4/resource-operation-validate.html $validate]]
+
+
+
+validator --> Facade
+validator --> internal
+validator --> AWSFacade
+
+Facade --> onto : FHIR RESTful API \n [[https://hl7.org/fhir/R4/codesystem-operation-validate-code.html $validate-code]]
+AWSFacade --> AWSFHIRWorks : FHIR RESTful API
 
 @enduml
