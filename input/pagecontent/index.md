@@ -1,8 +1,8 @@
 
 ### Validation Application
 
-[FHIR Tools Skunkworks](https://nhsdigital.github.io/interoperability-standards-tools-skunkworks/)
-Github Repository: https://github.com/NHSDigital/interoperability-standards-tools-skunkworks
+- [FHIR Tools Skunkworks](https://nhsdigital.github.io/interoperability-standards-tools-skunkworks/)
+- [Github Repository](https://github.com/NHSDigital/interoperability-standards-tools-skunkworks)
 
 This is a web based application which provides a user interface to backaned FHIR Servers. These provide:
 
@@ -21,8 +21,8 @@ The application is an [Angular application](https://angular.dev/overview) which 
 
 ### Validation Service
 
-[FHIR Development and Testing (FHIR Validation) Skunkworks](http://lb-fhir-validator-924628614.eu-west-2.elb.amazonaws.com/swagger-ui/index.html)
-Github Repository: https://github.com/NHSDigital/FHIR-Validation
+- [FHIR Development and Testing (FHIR Validation) Skunkworks](http://lb-fhir-validator-924628614.eu-west-2.elb.amazonaws.com/swagger-ui/index.html)
+- [Github Repository](https://github.com/NHSDigital/FHIR-Validation)
 
 The Validator is based on [HAPI FHIR Instance Validator](https://hapifhir.io/hapi-fhir/docs/validation/instance_validator.html), which is exposed using a [HAPI FHIR Plain Server](https://hapifhir.io/hapi-fhir/docs/server_plain/server_types.html) which gives an FHIR RESTful API to a [FHIR $validate operation](https://www.hl7.org/fhir/resource-operation-validate.html).
 This API is documented via [OpenAPI Specification (swagger)](https://swagger.io/specification/).
