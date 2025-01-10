@@ -1,5 +1,5 @@
 
-### Frontend Application
+### Validation Application
 
 [FHIR Tools Skunkworks](https://nhsdigital.github.io/interoperability-standards-tools-skunkworks/)
 Github Repository: https://github.com/NHSDigital/interoperability-standards-tools-skunkworks
@@ -15,7 +15,7 @@ This is a web based application which provides a user interface to backaned FHIR
 </figure>
 <br clear="all">
 
-The application is an [Angular application](https://github.com/NHSDigital/FHIR-Validation) which includes use of several libaries such as
+The application is an [Angular application](https://angular.dev/overview) which includes use of several libaries such as
 - [@types/fhir](https://www.npmjs.com/package/@types/fhir) for working with HL7 FHIR objects.
 - [Covalent Teradata](https://teradata.github.io/covalent/v8/#/) which builds on Angular Material.
 
