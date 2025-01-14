@@ -40,4 +40,15 @@ The validation configuration (ValidationSupportChain) is composed of:
 - A customised version of `TerminologyServiceValidationSupport` to handle the security mechanism of NHS England's Terminology Server
 - `AWSValidationSupport` a custom class to enable validation of FHIR QuestionnaireResponse using FHIR Questionnaire's stored a AWS FHIRWorks server.
 
+### Demo Services
+
+The following is a list of services demonstrating a variety of FHIR and IHE use cases.
+
+| Service / Application    | GitHub Repository                                                               | OAS Specification                                                                                                    |
+|--------------------------|---------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| FHIR Validation          | [GitHub Repository](https://github.com/NHSDigital/FHIR-Validation)              | [FHIR Development and Testing](http://lb-fhir-validator-924628614.eu-west-2.elb.amazonaws.com/swagger-ui/index.html) | 
+| FHIR Integration         | [GitHub Repository](https://github.com/NHSDigital/IOPS-FHIR-Integration-Engine) | [Orchestration Services](http://lb-hl7-tie-1794188809.eu-west-2.elb.amazonaws.com/swagger-ui/index.html)             |                                                                                                                                                  |                                                                                                                                                   |
+| FHIR Query API           | [GitHub Repository](https://github.com/NHSDigital/IOPS-FHIR-QEDm)               | [Clinical Data Sharing](http://lb-fhir-facade-926707562.eu-west-2.elb.amazonaws.com/swagger-ui/index.html)           |
+| Clinical Data Repository | [AWS FHIRWorks](https://github.com/aws-solutions/fhir-works-on-aws)             |                                                                                                                      |
+| Developement Application | [GitHub Repository](https://github.com/NHSDigital/interoperability-standards-tools-skunkworks)                                                                                | |
 
