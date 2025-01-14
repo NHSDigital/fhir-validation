@@ -40,7 +40,7 @@ The validation configuration (ValidationSupportChain) is composed of:
 - A customised version of `TerminologyServiceValidationSupport` to handle the security mechanism of NHS England's Terminology Server
 - `AWSValidationSupport` a custom class to enable validation of FHIR QuestionnaireResponse using FHIR Questionnaire's stored a AWS FHIRWorks server.
 
-### Demo Services
+### Repositories, Applications and Services
 
 The following is a list of services demonstrating a variety of FHIR and IHE use cases.
 
