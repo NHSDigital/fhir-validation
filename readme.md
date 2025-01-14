@@ -45,4 +45,5 @@ To update the packages that are validated against refer to [src/main/resources/m
     "version": "<version number>"
   }
 ```
-
+### Update AWS Server
+Follow [updating-validator.md](https://github.com/NHSDigital/FHIR-Validation/blob/main/updating-validator.md) to push the latest version of the validation service to AWS
