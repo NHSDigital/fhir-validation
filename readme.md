@@ -33,4 +33,17 @@ The configuration is aimed at supporting different use cases. For example the la
 
 See [Environmental Variables](environment-variables.md) for configuration options.
 
+### Update HAPI-FHIR Version
+The latest version og HAPI-FHIR can be found at https://github.com/hapifhir/hapi-fhir and with the respective changelog at https://hapifhir.io/hapi-fhir/docs/introduction/changelog.html
+Change the `<fhir.version>` value (line 20) in the [pom.xml](https://github.com/NHSDigital/FHIR-Validation/blob/main/pom.xml) to the latest version. The github action 'FHIR-Validation-Test' will run, ensure it passes before merging to main.
 
+### Update Packages
+To update the packages that are validated against refer to [src/main/resources/manifest.json](https://github.com/NHSDigital/FHIR-Validation/blob/main/src/main/resources/manifest.json). The packages need to be published on https://registry.fhir.org/ and need to be in the format
+```
+{
+    "packageName": "<package name>",
+    "version": "<version number>"
+  }
+```
+### Update AWS Server
+Follow [updating-validator.md](https://github.com/NHSDigital/FHIR-Validation/blob/main/updating-validator.md) to push the latest version of the validation service to AWS
