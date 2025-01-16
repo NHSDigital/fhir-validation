@@ -7,12 +7,9 @@ import ca.uhn.fhir.context.support.ValidationSupportContext
 import ca.uhn.fhir.rest.server.exceptions.UnprocessableEntityException
 import ca.uhn.fhir.validation.FhirValidator
 import com.fasterxml.jackson.databind.ObjectMapper
-import io.swagger.v3.oas.models.examples.Example
 import mu.KLogging
 import org.hl7.fhir.common.hapi.validation.support.*
 import org.hl7.fhir.common.hapi.validation.validator.FhirInstanceValidator
-import org.hl7.fhir.r4.model.CapabilityStatement
-import org.hl7.fhir.r4.model.ImplementationGuide
 import org.hl7.fhir.r4.model.StructureDefinition
 import org.hl7.fhir.utilities.json.model.JsonProperty
 import org.hl7.fhir.utilities.npm.NpmPackage
@@ -195,9 +192,7 @@ open class ValidationConfiguration(
     ): uk.nhs.england.fhirvalidator.shared.RemoteTerminologyServiceValidationSupport {
         logger.info("Using remote terminology server at ${terminologyValidationProperties.url}")
         val validationSupport =
-            uk.nhs.england.fhirvalidator.shared.RemoteTerminologyServiceValidationSupport(
-                fhirContext
-            )
+            uk.nhs.england.fhirvalidator.shared.RemoteTerminologyServiceValidationSupport(fhirContext)
         validationSupport.setBaseUrl(terminologyValidationProperties.url)
 
         if (optionalAuthorizedClientManager.isPresent) {

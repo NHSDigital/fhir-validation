@@ -18,14 +18,14 @@ management:
 
 fhir:
   server:
-    name: FHIR Development and Testing (FHIR Validation) Skunkworks
+    name: FHIR Validation
     baseUrl: http://localhost:9001
-    version: 7.0.7
+    version: 7.4.5
 
 services:
   R4: true
-  STU3: true
-  LOINC: true
+  STU3: false
+  LOINC: false
   R4B: false
 
 ###Remote terminology validation:
