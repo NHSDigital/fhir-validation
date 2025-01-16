@@ -601,6 +601,76 @@ open class OpenApiConfig(@Qualifier("R4") val ctx : FhirContext,
                 )
             oas.path("/FHIR/R4/CodeSystem/\$subsumes",subsumesItem)
         }
+        oas.path("/FHIR/R4/ImplementationGuide/\$cacheIG", PathItem()
+            .get(
+                Operation()
+                    .addTagsItem(EXPERIMENTAL)
+                    .summary("Retrieves an IG and triggers snapshot building process").responses(getApiResponses()))
+            .addParametersItem(
+                Parameter()
+                    .name("name")
+                    .`in`("query")
+                    .required(true)
+                    .style(Parameter.StyleEnum.SIMPLE)
+                    .description("The name or package id")
+                    .schema(StringSchema())
+                    .example("uk.nhsdigital.r4")
+            )
+            .addParametersItem(
+                Parameter()
+                    .name("version")
+                    .`in`("query")
+                    .required(true)
+                    .style(Parameter.StyleEnum.SIMPLE)
+                    .description("The version of the package")
+                    .schema(StringSchema())
+                    .example("2.6.0")
+            )
+        )
+
+
+        val implementationGuideItem = PathItem()
+            .get(
+                Operation()
+                    .addTagsItem(EXPERIMENTAL)
+                    .summary(" Option Search Parameters")
+                    .responses(getApiResponses())
+                    .addParametersItem(
+                        Parameter()
+                            .name("url")
+                            .`in`("query")
+                            .required(false)
+                            .style(Parameter.StyleEnum.SIMPLE)
+                            .description("The ID of the resource")
+                            .schema(StringSchema())
+                            .example("https://fhir.nhs.uk/ImplementationGuide/uk.nhsdigital.r4-2.6.0")
+                    )
+
+            )
+
+        oas.path("/FHIR/R4/ImplementationGuide",implementationGuideItem)
+
+
+        var binaryItem = PathItem()
+            .get(
+                Operation()
+                    .addTagsItem(EXPERIMENTAL)
+                    .summary("Read Binary. This returns the raw implementation guide")
+                    .responses(getApiResponsesBinary())
+                    .addParametersItem(Parameter()
+                        .name("url")
+                        .`in`("query")
+                        .required(true)
+                        .style(Parameter.StyleEnum.SIMPLE)
+                        .description("url of the ImplementationGuide")
+                        .schema(StringSchema())
+                        .example("https://fhir.nhs.uk/ImplementationGuide/fhir.r4.ukcore.stu1-0.5.1")
+                    )
+            )
+
+
+
+        oas.path("/FHIR/R4/ImplementationGuide/\$package",binaryItem)
         if (servicesProperties.LOINC) {
             oas.addTagsItem(io.swagger.v3.oas.models.tags.Tag()
                 .name(LOINC)
@@ -1066,7 +1136,16 @@ open class OpenApiConfig(@Qualifier("R4") val ctx : FhirContext,
         val apiResponses = ApiResponses().addApiResponse("200",response200)
         return apiResponses
     }
+    fun getApiResponsesBinary() : ApiResponses {
 
+        val response200 = ApiResponse()
+        response200.description = "OK"
+        val exampleList = mutableListOf<Example>()
+        exampleList.add(Example().value("{}"))
+        response200.content = Content().addMediaType("*/*", MediaType().schema(StringSchema()._default("{}")))
+        val apiResponses = ApiResponses().addApiResponse("200",response200)
+        return apiResponses
+    }
 
 
     fun getApiResponsesRAWJSON() : ApiResponses {

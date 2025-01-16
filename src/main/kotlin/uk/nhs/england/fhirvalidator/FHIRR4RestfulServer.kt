@@ -43,6 +43,8 @@ class FHIRR4RestfulServer(
     private val valueSetProvider: ValueSetProvider,
     private val codeSystemProvider: CodeSystemProvider,
     private val compostionProvider: CompostionProvider,
+    private val igCacheProvider: ImplementationGuideProvider,
+    private val binaryProvider: BinaryProvider,
     @Qualifier("SupportChain") private val supportChain: IValidationSupport,
     val fhirServerProperties: FHIRServerProperties,
     private val messageProperties: MessageProperties
@@ -67,8 +69,8 @@ class FHIRR4RestfulServer(
         registerProvider(valueSetProvider)
         registerProvider(codeSystemProvider)
         registerProvider(compostionProvider)
-
-
+        registerProvider(igCacheProvider)
+        registerProvider(binaryProvider)
 
         registerInterceptor(CapabilityStatementInterceptor(this.fhirContext, fhirPackage, supportChain, fhirServerProperties))
 

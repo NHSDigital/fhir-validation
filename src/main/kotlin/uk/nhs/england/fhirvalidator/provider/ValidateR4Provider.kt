@@ -147,7 +147,7 @@ class ValidateR4Provider (
                 }
                 if (issue.diagnostics.contains("http://unstats.un.org/unsd/")
                     || issue.diagnostics.contains("note that the validator cannot judge what is suitable")
-                    //|| issue.diagnostics.contains("A resource should have narrative for robust management")
+                  //  || issue.diagnostics.contains("A resource should have narrative for robust management")
                     ) {
                     issue.severity = OperationOutcome.IssueSeverity.INFORMATION
                 }
@@ -156,7 +156,7 @@ class ValidateR4Provider (
                     !issue.diagnostics.contains("because \"theCodeSystem\"")
                     && !issue.diagnostics.contains("but you should check that it's not intended to match a slice")
                     && !issue.diagnostics.contains("because &quot;theCodeSystem&quot; is null")
-                    && !issue.diagnostics.contains("A resource should have narrative for robust management" )
+                    //&& !issue.diagnostics.contains("A resource should have narrative for robust management")
                 ) {
                     newIssue.add(issue)
                 }
