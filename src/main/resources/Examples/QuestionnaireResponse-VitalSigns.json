@@ -1,11 +1,6 @@
 {
   "resourceType": "QuestionnaireResponse",
   "id": "questionnaireresponse-vital-signs",
-  "meta": {
-    "profile" : [
-      "https://fhir.virtually.healthcare/StructureDefinition/QuestionnaireResponse"
-    ]
-  },
   "questionnaire": "https://fhir.virtually.healthcare/Questionnaire/VitalSigns",
   "identifier" : {
     "system" : "https://tools.ietf.org/html/rfc4122",

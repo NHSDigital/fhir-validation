@@ -1,11 +1,6 @@
 {
   "resourceType": "Bundle",
   "id": "ab2539ee-fd55-4abc-9898-d4c1520dd2ba",
-  "meta": {
-    "profile" : [
-      "https://fhir.virtually.healthcare/StructureDefinition/FHIRDocument"
-    ]
-  },
   "identifier": {
     "use": "usual",
     "system": "https://tools.ietf.org/html/rfc4122",

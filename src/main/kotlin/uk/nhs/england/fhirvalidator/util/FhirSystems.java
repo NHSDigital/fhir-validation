@@ -10,10 +10,6 @@ import java.util.UUID;
 public final class FhirSystems {
     public static final String EMIS_PRACTITIONER =  "https://emis.com/Id/Practitioner/GUID";
 
-    public static final String EXTENSION_LOCATION_TYPE = "http://fhir.virtuallyhealthcare.co.uk/LocationType";
-
-    public static final String EXTENSION_LOCATION = "http://fhir.virtuallyhealthcare.co.uk/Location";
-
     public static final String NHS_GMP_NUMBER = "https://fhir.hl7.org.uk/Id/gmp-number";
 
     public static final String NHS_GMC_NUMBER = "https://fhir.hl7.org.uk/Id/gmc-number";
@@ -21,12 +17,6 @@ public final class FhirSystems {
     public static final String NHS_NUMBER = "https://fhir.nhs.uk/Id/nhs-number";
 
     public static final String ODS_CODE = "https://fhir.nhs.uk/Id/ods-organization-code";
-
-    public static final String VIRTUALLY_CONNECTION_TYPE = "http://fhir.virtuallyhealthcare.co.uk/ConnectionType";
-
-    public static final String AWS_LOCATION_IDENTIFIER = "https://fhir.virtually.healthcare/Id/Location";
-
-    public static final String AWS_TASK_IDENTIFIER = "https://fhir.virtually.healthcare/Id/Task";
 
     public static final String EMIS_PATIENT_IDENTIFIER = "https://emis.com/Id/Patient/DBID";
     public static final String EMIS_PATIENT_ODS_IDENTIFIER = "https://emis.com/Id/Patient/ID";

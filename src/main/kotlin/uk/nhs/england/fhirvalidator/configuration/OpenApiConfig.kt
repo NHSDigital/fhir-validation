@@ -86,6 +86,27 @@ open class OpenApiConfig(@Qualifier("R4") val ctx : FhirContext,
         examples.put("Patient PDS",
             Example().value(OASExamples().loadFHIRExample("Patient-PDS.json",ctx))
         )
+        examples.put("Observation - Weight",
+            Example().value(OASExamples().loadFHIRExample("Observation-EMIS-IM1-Weight.json",ctx))
+        )
+        examples.put("Observation - Blood Pressure",
+            Example().value(OASExamples().loadFHIRExample("Observation-EMIS-IM1-BloodPressure.json",ctx))
+        )
+        examples.put("Document (FHIR) - Clinical Note",
+            Example().value(OASExamples().loadFHIRExample("FHIRDocument-EMIS-IM1-ab2539ee-fd55-4abc-9898-d4c1520dd2ba.json",ctx))
+        )
+        examples.put("MedicationRequest (prescription)",
+            Example().value(OASExamples().loadFHIRExample("MedicationRequest-EMIS-IM1-Amoxicillin.json",ctx))
+        )
+        examples.put("Patient",
+            Example().value(OASExamples().loadFHIRExample("Patient-EMIS-IM1-3.json",ctx))
+        )
+        examples.put("Practitioner",
+            Example().value(OASExamples().loadFHIRExample("Practitioner-EMIS-IM1-4435f523-44ae-4cfb-903d-570b2887812c.json",ctx))
+        )
+        examples.put("QuestionnaireResponse - Vital Signs",
+            Example().value(OASExamples().loadFHIRExample("QuestionnaireResponse-VitalSigns.json",ctx))
+        )
         examples.put("FHIR Message - Diagnostics Report (Unsolicited Observations)",
             Example().value(OASExamples().loadFHIRExample("Bundle-message-Diagnostics-unsolicited-observations.json",ctx))
         )

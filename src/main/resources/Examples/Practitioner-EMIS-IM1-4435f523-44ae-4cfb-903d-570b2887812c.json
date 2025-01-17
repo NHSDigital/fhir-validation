@@ -1,11 +1,6 @@
 {
   "resourceType": "Practitioner",
   "id": "4435f523-44ae-4cfb-903d-570b2887812c",
-  "meta": {
-    "profile" : [
-      "https://fhir.virtually.healthcare/StructureDefinition/Practitioner"
-    ]
-  },
   "extension": [
     {
       "url": "http://fhir.virtuallyhealthcare.co.uk/Role",

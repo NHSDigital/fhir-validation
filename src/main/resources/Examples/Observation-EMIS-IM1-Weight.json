@@ -1,11 +1,6 @@
 {
   "resourceType": "Observation",
   "id": "3201",
-  "meta": {
-    "profile" : [
-      "https://fhir.virtually.healthcare/StructureDefinition/Observation"
-    ]
-  },
   "identifier": [
     {
       "use": "secondary",
