@@ -147,7 +147,7 @@ class ValidateR4Provider (
                 }
                 if (issue.diagnostics.contains("http://unstats.un.org/unsd/")
                     || issue.diagnostics.contains("note that the validator cannot judge what is suitable")
-                  //  || issue.diagnostics.contains("A resource should have narrative for robust management")
+                    || issue.diagnostics.contains("A resource should have narrative for robust management")
                     ) {
                     issue.severity = OperationOutcome.IssueSeverity.INFORMATION
                 }
