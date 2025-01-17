@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import uk.nhs.england.fhirvalidator.configuration.FHIRServerProperties
 import uk.nhs.england.fhirvalidator.configuration.MessageProperties
+import uk.nhs.england.fhirvalidator.configuration.ServicesProperties
 import uk.nhs.england.fhirvalidator.interceptor.AWSAuditEventLoggingInterceptor
 import uk.nhs.england.fhirvalidator.interceptor.CapabilityStatementInterceptor
 import uk.nhs.england.fhirvalidator.interceptor.ValidationInterceptor
@@ -47,7 +48,8 @@ class FHIRR4RestfulServer(
     private val binaryProvider: BinaryProvider,
     @Qualifier("SupportChain") private val supportChain: IValidationSupport,
     val fhirServerProperties: FHIRServerProperties,
-    private val messageProperties: MessageProperties
+    private val messageProperties: MessageProperties,
+    val servicesProperties: ServicesProperties,
 ) : RestfulServer(fhirContext) {
 
     override fun initialize() {
@@ -56,9 +58,22 @@ class FHIRR4RestfulServer(
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
 
         registerProvider(validateR4Provider)
-        registerProvider(openAPIProvider)
-        registerProvider(markdownProvider)
+        registerProvider(valueSetProvider)
+
+        if (servicesProperties.Experimental) {
+            registerProvider(openAPIProvider)
+            registerProvider(markdownProvider)
+            registerProvider(compostionProvider)
+        }
+        if (servicesProperties.Utility) {
+            registerProvider(igCacheProvider)
+            registerProvider(binaryProvider)
+        }
+
         registerProvider(capabilityStatementProvider)
+
+        // These are always provided but can be hidden in the OAS spec
+        registerProvider(codeSystemProvider)
         registerProvider(messageDefinitionProvider)
         registerProvider(structureDefinitionProvider)
         registerProvider(operationDefinitionProvider)
@@ -66,11 +81,8 @@ class FHIRR4RestfulServer(
         registerProvider(structureMapProvider)
         registerProvider(conceptMapProvider)
         registerProvider(namingSystemProvider)
-        registerProvider(valueSetProvider)
-        registerProvider(codeSystemProvider)
-        registerProvider(compostionProvider)
-        registerProvider(igCacheProvider)
-        registerProvider(binaryProvider)
+
+
 
         registerInterceptor(CapabilityStatementInterceptor(this.fhirContext, fhirPackage, supportChain, fhirServerProperties))
 

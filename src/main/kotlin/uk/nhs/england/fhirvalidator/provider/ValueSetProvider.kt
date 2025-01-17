@@ -162,7 +162,7 @@ class ValueSetProvider (@Qualifier("R4") private val fhirContext: FhirContext,
         @OperationParam(name = "context") context: String?,
         @ResourceParam valueSet: ValueSet?,
         @OperationParam(name = "valueSetVersion") valueSetVersion: String?,
-        @OperationParam(name = "code") code: String?,
+        @OperationParam(name = "code") code: String,
         @OperationParam(name = "system") system: String?,
         @OperationParam(name = "systemVersion") systemVersion: String?,
         @OperationParam(name = "display") display: String?,
@@ -173,7 +173,7 @@ class ValueSetProvider (@Qualifier("R4") private val fhirContext: FhirContext,
         @OperationParam(name = "displayLanguage") displayLanguage: CodeType?
     ) : OperationOutcome {
         val input = OperationOutcome()
-        input.issueFirstRep.severity = OperationOutcome.IssueSeverity.INFORMATION
+
         if (code != null) {
             val conceptValidaton = ConceptValidationOptions()
             var sysD = system
@@ -187,16 +187,26 @@ class ValueSetProvider (@Qualifier("R4") private val fhirContext: FhirContext,
                     urlD)
 
             if (validationResult != null) {
-                //logger.info(validationResult?.code)
-                if (validationResult.severity != null) {
-                    when (validationResult.severity) {
-                        IValidationSupport.IssueSeverity.ERROR -> input.issueFirstRep.severity = OperationOutcome.IssueSeverity.ERROR;
-                        IValidationSupport.IssueSeverity.WARNING -> input.issueFirstRep.severity = OperationOutcome.IssueSeverity.WARNING;
-                        else -> {}
-                    }
+                validationResult.codeValidationIssues.forEach {
+                    codeIssue ->
+                        val issue = input.addIssue();
+                        if (validationResult.severity != null) {
+                            when (validationResult.severity) {
+                                IValidationSupport.IssueSeverity.ERROR -> issue.severity = OperationOutcome.IssueSeverity.ERROR;
+                                IValidationSupport.IssueSeverity.WARNING -> issue.severity = OperationOutcome.IssueSeverity.WARNING;
+                                else -> {}
+                            }
+                        }
+                        issue.diagnostics = codeIssue.message
                 }
-                input.issueFirstRep.diagnostics = validationResult.message
+                if (!input.hasIssue()) {
+                    input.issueFirstRep.severity = OperationOutcome.IssueSeverity.INFORMATION
+                    input.issueFirstRep.diagnostics = "No issues found"
+                }
                 //logger.info(validationResult?.message)
+            } else {
+                input.issueFirstRep.severity = OperationOutcome.IssueSeverity.ERROR
+                input.issueFirstRep.diagnostics = "Unable to validate code - Unspecified"
             }
         }
         return input;

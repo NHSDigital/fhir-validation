@@ -8,7 +8,10 @@ data class ServicesProperties(
     var STU3: Boolean,
     var R4: Boolean,
     var LOINC: Boolean,
-    var R4B: Boolean
+    var R4B: Boolean,
+    var Terminology : Boolean,
+    var Utility : Boolean,
+    var Experimental : Boolean
 ) {
 
 }

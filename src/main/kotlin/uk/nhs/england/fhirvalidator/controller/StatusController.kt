@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController
 import kotlin.math.log
 
 @RestController
-@Hidden
 class StatusController {
     companion object : KLogging()
     @GetMapping("_status")
