@@ -20,7 +20,7 @@ fhir:
   server:
     name: FHIR Validation
     baseUrl: http://localhost:9001
-    version: 7.4.5
+    version: 7.4.7
 
 services:
   R4: true

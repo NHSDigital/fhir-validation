@@ -10,5 +10,9 @@
   {
     "packageName": "fhir.r4.nhsengland.stu1",
     "version": "1.3.0"
+  },
+  {
+    "packageName": "fhir.r4.nhsengland.programme",
+    "version": "0.2.1"
   }
 ]
