@@ -66,8 +66,9 @@ class FHIRR4RestfulServer(
             registerProvider(compostionProvider)
         }
         if (servicesProperties.Utility) {
-            registerProvider(igCacheProvider)
-            registerProvider(binaryProvider)
+            registerProvider(structureMapProvider)
+            registerProvider(conceptMapProvider)
+            registerProvider(namingSystemProvider)
         }
 
         registerProvider(capabilityStatementProvider)
@@ -78,10 +79,10 @@ class FHIRR4RestfulServer(
         registerProvider(structureDefinitionProvider)
         registerProvider(operationDefinitionProvider)
         registerProvider(searchParameterProvider)
-        registerProvider(structureMapProvider)
-        registerProvider(conceptMapProvider)
-        registerProvider(namingSystemProvider)
 
+
+        registerProvider(igCacheProvider)
+        registerProvider(binaryProvider)
 
 
         registerInterceptor(CapabilityStatementInterceptor(this.fhirContext, fhirPackage, supportChain, fhirServerProperties))
